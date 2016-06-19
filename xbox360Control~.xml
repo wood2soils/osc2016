@@ -1,0 +1,957 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
+   <PATCH nodename="C:\home\work\osc2016\xbox360Control.v4p" scrollx="972" scrolly="24" systemname="xbox360Control_test1" filename="H:\work\vvvv\Xbox360Controller_3\xbox360Control_test1.v4p">
+   <BOUNDS type="Window" left="1164" top="1332" width="21240" height="8976">
+   </BOUNDS>
+   <NODE systemname="Xbox360Controller (Devices 1.0.0)" filename="Xbox360Controller.dll" nodename="Xbox360Controller (Devices 1.0.0)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="2247" top="150" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Left ThumbstickXY" visible="1">
+   </PIN>
+   <PIN pinname="X Button" visible="1">
+   </PIN>
+   <PIN pinname="A Button" visible="1">
+   </PIN>
+   <PIN pinname="B Button" visible="1">
+   </PIN>
+   <PIN pinname="Left Shoulder Button" visible="1">
+   </PIN>
+   <PIN pinname="Right Trigger" visible="1">
+   </PIN>
+   <PIN pinname="Right Shoulder Button" visible="1">
+   </PIN>
+   <PIN pinname="Y Button" visible="1">
+   </PIN>
+   <PIN pinname="Right Thumbstick Pressed" visible="1">
+   </PIN>
+   <PIN pinname="Start" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="1947" top="5973" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="3600" top="2415" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3600" top="2415" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="1971" top="5448" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXY" visible="1" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="1971" top="5448">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="2" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="1959" top="4704" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1959" top="4704" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseMove">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Output Enum" dstnodeid="3" dstpinname="Event Type">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Bin Size">
+   </LINK>
+   <NODE systemname="Toggle (Animation)" nodename="Toggle (Animation)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="3600" top="1935" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Reset" slicecount="1" visible="1" values="0">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="4" dstpinname="Y Input Value">
+   </LINK>
+   <NODE id="6" systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="3600" top="1350" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up Edge" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input" visible="1" pintype="Input">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bang On Create" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Down Edge" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Up Edge" dstnodeid="7" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="X Button" dstnodeid="6" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Mouse" dstnodeid="1" dstpinname="Mouse">
+   </LINK>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="4086" top="5547" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXY" visible="1" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Bin Size" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="4086" top="5547">
+   </BOUNDS>
+   <PIN pinname="Left Button" visible="1" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="8" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="4080" top="4806" width="1332" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4080" top="4806" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseDown">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Output Enum" dstnodeid="9" dstpinname="Event Type">
+   </LINK>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="4116" top="6657" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Mouse" dstnodeid="10" dstpinname="Mouse">
+   </LINK>
+   <NODE id="11" systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="5178" top="1260" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up Edge" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input" visible="1" pintype="Input" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bang On Create" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Down Edge" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="13">
+   <BOUNDS type="Node" left="5160" top="1845" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5160" top="1845" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Up Edge" dstnodeid="13" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="14">
+   <BOUNDS type="Node" left="5925" top="1860" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5925" top="1860" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Down Edge" dstnodeid="14" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Bin Size">
+   </LINK>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="5889" top="5388" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXY" visible="1" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Bin Size" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="5889" top="5388">
+   </BOUNDS>
+   <PIN pinname="Left Button" visible="1" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="16" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5889" top="4740" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5889" top="4740" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseUp">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Output Enum" dstnodeid="17" dstpinname="Event Type">
+   </LINK>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="5781" top="6300" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Mouse" dstnodeid="15" dstpinname="Mouse">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Bin Size">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="18">
+   <BOUNDS type="Node" left="4470" top="1770" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4470" top="1770" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Left Button">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Left Button">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="19" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="16440" top="297" width="2715" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16440" top="297" width="2760" height="870">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="Xボタンを押すとControllerでマウスが動かせる。もう一度押すと解除。">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="21">
+   <BOUNDS type="Node" left="2436" top="6624" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2436" top="6624" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Left Shoulder Button" dstnodeid="21" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="23">
+   <BOUNDS type="Node" left="3072" top="6624" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3072" top="6624" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Mouse (Devices Desktop)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Mouse (Devices Desktop)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="1296" top="1572" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXY" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="2244" top="4260" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="PositionXY" dstnodeid="30" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Output" dstnodeid="3" dstpinname="PositionXY">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="2256" top="3216" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 2" visible="1" slicecount="2" values="0.02,0.02">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="33">
+   <BOUNDS type="Node" left="6780" top="1656" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6780" top="1656" width="792" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="0.02,0.02">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Left ThumbstickXY" dstnodeid="31" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="31" srcpinname="Output" dstnodeid="30" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="2112" top="7920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Send String" slicecount="1" values="|L button|">
+   </PIN>
+   </NODE>
+   <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="35">
+   <BOUNDS type="Node" left="3612" top="7920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Send String" slicecount="1" values="|R button|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Right Shoulder Button" dstnodeid="23" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="41" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="8226" top="4386" width="1956" height="360">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8226" top="4386" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseDown">
+   </PIN>
+   </NODE>
+   <NODE id="40" systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="8832" top="1572" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up Edge" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input" visible="1" pintype="Input" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bang On Create" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Down Edge" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="39">
+   <BOUNDS type="Node" left="8310" top="2445" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8310" top="2445" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="Up Edge" dstnodeid="39" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="38">
+   <BOUNDS type="Node" left="9015" top="2460" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9015" top="2460" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="40" srcpinname="Down Edge" dstnodeid="38" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="36" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="10047" top="5244" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10047" top="5244" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseUp">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="43">
+   <BOUNDS type="Node" left="9240" top="4848" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="9240" top="4848" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="44">
+   <BOUNDS type="Node" left="8220" top="6876" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="10056" top="6984" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="A Button" dstnodeid="11" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="B Button" dstnodeid="40" dstpinname="Input">
+   </LINK>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="46">
+   <BOUNDS type="Node" left="8244" top="6135" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="8244" top="6135">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Output Enum" dstnodeid="46" dstpinname="Event Type">
+   </LINK>
+   <LINK srcnodeid="39" srcpinname="Y Output Value" dstnodeid="46" dstpinname="Bin Size">
+   </LINK>
+   <LINK srcnodeid="46" srcpinname="Mouse" dstnodeid="44" dstpinname="Mouse">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="46" dstpinname="Right Button">
+   </LINK>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="47">
+   <BOUNDS type="Node" left="10047" top="5976" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="10047" top="5976">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="36" srcpinname="Output Enum" dstnodeid="47" dstpinname="Event Type">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Bin Size">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="Mouse" dstnodeid="45" dstpinname="Mouse">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Right Button">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="50">
+   <BOUNDS type="Node" left="7272" top="2292" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7272" top="2292" width="792" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="0.003,0.003">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="51">
+   <BOUNDS type="Node" left="6852" top="2964" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Switch" visible="1" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="51" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="51" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="51" srcpinname="Output" dstnodeid="31" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Y Button" dstnodeid="51" dstpinname="Switch">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="54">
+   <BOUNDS type="Node" left="5256" top="7188" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5256" top="7188" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Right Thumbstick Pressed" dstnodeid="54" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="56">
+   <BOUNDS type="Node" left="5244" top="7920" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Send String" slicecount="1" values="|R Stick button|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="54" srcpinname="Y Output Value" dstnodeid="56" dstpinname="Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="58">
+   <BOUNDS type="Node" left="13452" top="2988" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="13452" top="2988" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="62" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="11964" top="5400" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11964" top="5400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseDown">
+   </PIN>
+   </NODE>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="63">
+   <BOUNDS type="Node" left="11964" top="7032" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="64">
+   <BOUNDS type="Node" left="12792" top="3768" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="12792" top="3768" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE id="66" systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="11820" top="1512" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Up Edge" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Input" visible="1" pintype="Input" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Bang On Create" pintype="Input" visible="0" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Down Edge" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Start" dstnodeid="66" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="69" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="14340" top="4836" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14340" top="4836" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="MouseUp">
+   </PIN>
+   </NODE>
+   <NODE systemname="SendMouse (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="SendMouse (System)" componentmode="Hidden" id="67">
+   <BOUNDS type="Node" left="14328" top="6540" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mouse" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="72">
+   <BOUNDS type="Node" left="15840" top="3552" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="15840" top="3552" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="KeyEvents (Keyboard Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="KeyEvents (Keyboard Join)" componentmode="Hidden" id="83">
+   <BOUNDS type="Node" left="16620" top="5973" width="1710" height="270">
+   </BOUNDS>
+   <PIN pinname="Bin Size" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Key Code" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="16620" top="5973">
+   </BOUNDS>
+   <PIN pinname="Event Type" slicecount="2" visible="1" values="KeyDown,KeyUp">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsKeyCode (String)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsKeyCode (String)" componentmode="Hidden" id="81">
+   <BOUNDS type="Node" left="17160" top="5463" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Key Code" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="17160" top="5463">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="80" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="17160" top="4983" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="17160" top="4983" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="SPACE">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="80" srcpinname="Output String" dstnodeid="81" dstpinname="Key Name">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="79" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="18006" top="4311" width="375" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="18006" top="4311" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="81" srcpinname="Key Code" dstnodeid="83" dstpinname="Key Code">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="18270" top="5463" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="79" srcpinname="Y Output Value" dstnodeid="78" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="77">
+   <BOUNDS type="Node" left="18540" top="4323" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="18540" top="4323" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Send">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="77" srcpinname="Y Output Value" dstnodeid="78" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Output" dstnodeid="83" dstpinname="Bin Size">
+   </LINK>
+   <NODE nodename="SendKeyboard (System)" componentmode="Hidden" id="76" systemname="SendKeyboard (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll">
+   <BOUNDS type="Node" left="16620" top="6558" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16620" top="6558" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="83" srcpinname="Keyboard" dstnodeid="76" dstpinname="Keyboard">
+   </LINK>
+   <LINK srcnodeid="66" srcpinname="Up Edge" dstnodeid="77" dstpinname="Y Input Value">
+   <LINKPOINT x="19374" y="3126">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IOBox (Enumerations)" nodename="IOBox (Enumerations)" componentmode="InABox" id="84">
+   <BOUNDS type="Node" left="16068" top="4104" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="16068" top="4104" width="1200" height="240">
+   </BOUNDS>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Input Enum" slicecount="1" values="KeyDown">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="84" srcpinname="Output Enum" dstnodeid="83" dstpinname="Event Type">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="85">
+   <BOUNDS type="Node" left="12888" top="2340" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Up Edge" dstnodeid="85" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="85" srcpinname="Output 1" dstnodeid="58" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="86">
+   <BOUNDS type="Node" left="14628" top="2412" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Down Edge" dstnodeid="86" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="86" srcpinname="Output 1" dstnodeid="72" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="KeyEvents (Keyboard Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="KeyEvents (Keyboard Join)" componentmode="Hidden" id="94">
+   <BOUNDS type="Node" left="20604" top="6369" width="1710" height="270">
+   </BOUNDS>
+   <PIN pinname="Bin Size" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Key Code" visible="1">
+   </PIN>
+   <PIN pinname="Keyboard" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="20604" top="6369">
+   </BOUNDS>
+   <PIN pinname="Event Type" slicecount="2" visible="1" values="KeyDown,KeyUp">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsKeyCode (String)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsKeyCode (String)" componentmode="Hidden" id="93">
+   <BOUNDS type="Node" left="21144" top="5859" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Key Code" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="21144" top="5859">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="92" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="21144" top="5379" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="21144" top="5379" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="SPACE">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="92" srcpinname="Output String" dstnodeid="93" dstpinname="Key Name">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="91" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="21990" top="4707" width="375" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="21990" top="4707" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="93" srcpinname="Key Code" dstnodeid="94" dstpinname="Key Code">
+   </LINK>
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="90">
+   <BOUNDS type="Node" left="22254" top="5859" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="90" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="89">
+   <BOUNDS type="Node" left="22524" top="4719" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="22524" top="4719" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Send">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="89" srcpinname="Y Output Value" dstnodeid="90" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="90" srcpinname="Output" dstnodeid="94" dstpinname="Bin Size">
+   </LINK>
+   <NODE nodename="SendKeyboard (System)" componentmode="Hidden" id="88" systemname="SendKeyboard (System)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll">
+   <BOUNDS type="Node" left="20604" top="6954" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="20604" top="6954" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="94" srcpinname="Keyboard" dstnodeid="88" dstpinname="Keyboard">
+   </LINK>
+   <NODE systemname="IOBox (Enumerations)" nodename="IOBox (Enumerations)" componentmode="InABox" id="87">
+   <BOUNDS type="Node" left="20052" top="4500" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="20052" top="4500" width="1200" height="240">
+   </BOUNDS>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Input Enum" slicecount="1" values="KeyUp">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="87" srcpinname="Output Enum" dstnodeid="94" dstpinname="Event Type">
+   </LINK>
+   <NODE systemname="FrameDelay (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="FrameDelay (Value)" componentmode="Hidden" id="95">
+   <BOUNDS type="Node" left="19380" top="2520" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   <PIN pinname="Default 1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initialize" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="66" srcpinname="Up Edge" dstnodeid="95" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="86" srcpinname="Output 1" dstnodeid="89" dstpinname="Y Input Value">
+   <LINKPOINT x="22740" y="3840">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="96">
+   <BOUNDS type="Node" left="11964" top="6132" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11964" top="6132">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="62" srcpinname="Output Enum" dstnodeid="96" dstpinname="Event Type">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Mouse" dstnodeid="63" dstpinname="Mouse">
+   </LINK>
+   <LINK srcnodeid="58" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Bin Size">
+   </LINK>
+   <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="96" dstpinname="Right Button">
+   </LINK>
+   <NODE systemname="MouseEvents (Mouse Join)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="MouseEvents (Mouse Join)" componentmode="Hidden" id="97">
+   <BOUNDS type="Node" left="14340" top="5568" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="14340" top="5568">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="69" srcpinname="Output Enum" dstnodeid="97" dstpinname="Event Type">
+   </LINK>
+   <LINK srcnodeid="97" srcpinname="Mouse" dstnodeid="67" dstpinname="Mouse">
+   </LINK>
+   <LINK srcnodeid="72" srcpinname="Y Output Value" dstnodeid="97" dstpinname="Bin Size">
+   </LINK>
+   <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="97" dstpinname="Right Button">
+   </LINK>
+   <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="98">
+   <BOUNDS type="Node" left="1764" top="7488" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Up Edge" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="98" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="98" srcpinname="Up Edge" dstnodeid="34" dstpinname="Input Value">
+   </LINK>
+   <NODE systemname="TogEdge (Animation)" nodename="TogEdge (Animation)" componentmode="Hidden" id="99">
+   <BOUNDS type="Node" left="2988" top="7392" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Up Edge" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="99" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="99" srcpinname="Up Edge" dstnodeid="35" dstpinname="Input Value">
+   </LINK>
+   </PATCH>
